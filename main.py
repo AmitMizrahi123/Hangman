@@ -2,6 +2,7 @@ import pygame
 import math
 import random
 import os
+import string
 
 # setup display
 pygame.init()
@@ -20,13 +21,13 @@ for i in range(0, len(lst) - 1):
 RADIUS = 20
 GAP = 15
 letters = []
-startx = round((WIDTH - (RADIUS * 2 + GAP) * 13) / 2)
-starty = 400
-A = 65
+x_start_pos = round((WIDTH - (RADIUS * 2 + GAP) * 13) / 2)
+y_start_pos = 400
+alphabet = list(string.ascii_uppercase)
 for i in range(26):
-    x = startx + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
-    y = starty + ((i // 13) * (GAP + RADIUS * 2))
-    letters.append([x, y, chr(A + i), True])
+    x = x_start_pos + GAP * 2 + ((RADIUS * 2 + GAP) * (i % 13))
+    y = y_start_pos + ((i // 13) * (GAP + RADIUS * 2))
+    letters.append([x, y, alphabet[i], True])
 
 # fonts
 LETTER_FONT = pygame.font.SysFont('Ariel', 40)
